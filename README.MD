@@ -72,8 +72,8 @@ The training algorithm takes as input the following hyperparameters:
 - `hidden-size`: `int`. The number of hidden units of the neural network heads (default = 64).
 - `minimal`: `bool`. If set to 1, the model will use the CfC direct solution (default = 0).
 - `no-gate`: `bool`. If set to 1, the model will use a CfC without the (1 - sigmoid) part (default = 0).
-- `use-ltc`: `bool`. If set to 1, the model will use an LTC with a semi-implicit ODE solver instead of a CfC (default = 0).
-- `use-mixed`: `bool`. If set to 1, the model will mix the CfC RNN-state with an LSTM to avoid vanishing gradients (default = 0).
+- `use-ltc`: `bool`. If set to 1, the model will use an LTC instead of a CfC (default = 0).
+- `use-mixed`: `bool`. If set to 1, the model will mix the CfC RNN-state with an LSTM (default = 0).
 - `lr`: `float`. The learning rate used for training (default = 0.001).
 - `lr-decay`: `float`. The decay factor applied to the learning rate (default = 0.9).
 - `batch-size`: `int`. The batch size used for training (default = 64).
