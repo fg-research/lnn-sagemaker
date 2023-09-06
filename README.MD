@@ -6,17 +6,26 @@ The Docker images include software licensed under the [Apache License 2.0](https
 
 ## Model Description
 ### Model Architecture
-The closed-form continuous-depth network (CfC) is a new neural network architecture for sequential data. CfCs belong to the class of continuous-time recurrent neural networks (CT-RNN), where the evolution of the hidden state over time is described by an Ordinary Differential Equations (ODE). 
+The closed-form continuous-depth network (CfC) is a new neural network architecture for sequential data. 
+CfCs belong to the class of continuous-time recurrent neural networks (CT-RNN), where the evolution of the hidden state over time is described by an Ordinary Differential Equations (ODE).
 
-CfCs use the Liquid Time Constant (LTC) ODE, where both the derivative and the time constant of the hidden state are determined by a neural network. Differently from other CT-RNNs (including LTCs), which use a numerical solver to approximate the ODE solution, CfCs use an approximate closed-form solution. As a results, CfCs achieve faster training and inference performance than other CT-RNNs.
+CfCs use the Liquid Time Constant (LTC) ODE, where both the derivative and the time constant of the hidden state are determined by a neural network. 
+Differently from other CT-RNNs (including LTCs), which use a numerical solver to approximate the ODE solution, CfCs use an approximate closed-form solution. 
+As a results, CfCs achieve faster training and inference performance than other CT-RNNs.
 
 The hidden state $x$ of a CfC at time $t$ is given by
 
 $$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$$
 
-where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input (i.e. the time series) while $f$, $g$ and $h$ are neural networks. The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation functions. The backbone is followed by three separate neural network heads. The head of the $g$ and $h$ neural networks is a fully-connected layer with hyperbolic tangent activation. The head of the $f$ neural network is an affine function $b + a(\Delta t)$ where $\Delta t$ is the time increment (or time span) between consecutive time steps while the intercept $b$ and slope $a$ are the outputs of two fully-connected layers with linear activation.
+where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input (i.e. the time series) while $f$, $g$ and $h$ are neural networks. 
+The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation functions. 
 
-<img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/cfc-diagram.png style="width:80%;margin-top:60px;margin-bottom:50px"/>
+The backbone is followed by three separate neural network heads. 
+The head of the $g$ and $h$ neural networks is a fully-connected layer with hyperbolic tangent activation. 
+The head of the $f$ neural network is an affine function $b + a(\Delta t)$ where $\Delta t$ is the time increment (or time span) between consecutive time steps 
+while the intercept $b$ and slope $a$ are the outputs of two fully-connected layers with linear activation.
+
+<img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/cfc-diagram.png style="width:100%;margin-top:60px;margin-bottom:50px"/>
 
 *CfC architecture (source: [doi:10.1038/s42256–022–00556–7](https://doi.org/10.1038/s42256-022-00556-7))*
 
@@ -32,16 +41,16 @@ The `training` channel is mandatory, while the `validation` channel is optional.
 The training and validation datasets should be provided as CSV files. 
 Each column represents a time series, while each row represents a time step.
 All the time series should have the same length and should not contain missing values.
-The column headers should be formatted as follows:
 
+The column headers should be formatted as follows:
 - The column names of the (mandatory) target time series should start with "y" (e.g. "y1", "y2", ...). 
 - The column names of the (optional) feature time series should start with "x" (e.g. "x1", "x2", ...). 
 - The column containing the time spans (optional) should be named "ts".
 
 If the features are not provided, the algorithm will only use the past values of the target time series as input.      
 If the time spans are not provided, the algorithm will assume that the observations are equally spaced.
-
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
+
 See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
 See `notebook.ipynb` for an example of how to launch a training job.
 
@@ -86,9 +95,7 @@ The inference algorithm takes as input a CSV file containing the time series.
 The CSV file should have the same format and columns as the one used for training.
 See the sample input file `test.csv` in the `data/inference/input` folder.
 
-The inference algorithm outputs the predicted values of the time series. 
-
-**Notes:**
+The inference algorithm outputs the predicted values of the time series. Note that:
 
 a) The model predicts the time series sequence by sequence. 
 For instance, if the `context-length` hyperparameter is set equal to 200, and the `prediction-length` hyperparameter is set equal to 100, 
