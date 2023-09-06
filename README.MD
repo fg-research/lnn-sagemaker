@@ -17,7 +17,7 @@ The hidden state $x$ of a CfC at time $t$ is given by
 
 $$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$$
 
-where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input (i.e. the time series) while $f$, $g$ and $h$ are neural networks. 
+where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input sequence, while $f$, $g$ and $h$ are neural networks. 
 The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation functions. 
 
 The backbone is followed by three separate neural network heads. 
