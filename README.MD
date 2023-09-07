@@ -43,9 +43,9 @@ Each column represents a time series, while each row represents a time step.
 All the time series should have the same length and should not contain missing values.
 
 The column headers should be formatted as follows:
-- The column names of the (mandatory) target time series should start with "y" (e.g. "y1", "y2", ...). 
-- The column names of the (optional) feature time series should start with "x" (e.g. "x1", "x2", ...). 
-- The column containing the time spans (optional) should be named "ts".
+- The column names of the (mandatory) target time series should start with `"y"` (e.g. `"y1"`, `"y2"`, ...). 
+- The column names of the (optional) feature time series should start with `"x"` (e.g. `"x1"`, `"x2"`, ...). 
+- The column containing the time spans (optional) should be named `"ts"`.
 
 If the features are not provided, the algorithm will only use the past values of the target time series as input.      
 If the time spans are not provided, the algorithm will assume that the observations are equally spaced.
