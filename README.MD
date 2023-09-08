@@ -119,6 +119,8 @@ The algorithm supports only real-time inference endpoints. The inference image i
 See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
 
+**Additional Resources:** [[Blog Post]](https://medium.com/@fg-research/time-series-forecasting-with-the-cfc-sagemaker-algorithm-from-aws-marketplace-eb89a53f11ec?source=friends_link&sk=3471cd2c8a6881f5cce1b2ce3bd46ffe)
+
 ## References
 - R. Hasani, M. Lechner, A. Amini, D. Rus and R. Grosu, "Liquid time-constant networks", in *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 35, no. 9, pp. 7657-7666, 2021, [doi: 10.1609/aaai.v35i9.16936](https://doi.org/10.1609/aaai.v35i9.16936).
 - R. Hasani, M. Lechner, A. Amini, L. Liebenwein, A. Ray, M. Tschaikowski, G. Teschl and D. Rus, "Closed-form continuous-time neural networks", in *Nature Machine Intelligence*, vol. 4, pp. 992–1003, 2022, [doi: 10.1038/s42256-022-00556-7](https://doi.org/10.1038/s42256-022-00556-7).
