@@ -2,11 +2,13 @@
 The [Time Series Forecasting (CfC) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-7s4giphluwgta) performs time series forecasting with the Closed-Form Continuous-Depth (CfC) network. 
 It implements both training and inference from CSV data and supports both CPU and GPU instances. 
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers. 
-The Docker images include software licensed under the [Apache License 2.0](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/LICENSE.txt).
+The Docker images include software licensed under the Apache License 2.0, 
+see the [LICENSE](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/LICENSE.txt) 
+and [NOTICE](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/NOTICE.txt).
 
 ## Model Description
 ### Model Architecture
-The closed-form continuous-depth network (CfC) is a new neural network architecture for sequential data. 
+The closed-form continuous-depth network (CfC) is a neural network architecture for sequential data. 
 CfCs belong to the class of continuous-time recurrent neural networks (CT-RNN), where the evolution of the hidden state over time is described by an Ordinary Differential Equations (ODE).
 
 CfCs use the Liquid Time Constant (LTC) ODE, where both the derivative and the time constant of the hidden state are determined by a neural network. 
@@ -18,11 +20,11 @@ The hidden state $x$ of a CfC at time $t$ is given by
 $$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$$
 
 where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input sequence, while $f$, $g$ and $h$ are neural networks. 
-The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation functions. 
+The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation. 
 
 The backbone is followed by three separate neural network heads. 
 The head of the $g$ and $h$ neural networks is a fully-connected layer with hyperbolic tangent activation. 
-The head of the $f$ neural network is an affine function $b + a(\Delta t)$ where $\Delta t$ is the time increment (or time span) between consecutive time steps 
+The head of the $f$ neural network is an affine function $b + a(\Delta t)$ where $\Delta t$ is the time span (or time increment) between consecutive time steps 
 while the intercept $b$ and slope $a$ are the outputs of two fully-connected layers with linear activation.
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/cfc-diagram.png style="width:100%;margin-top:60px;margin-bottom:50px"/>
@@ -95,7 +97,9 @@ The inference algorithm takes as input a CSV file containing the time series.
 The CSV file should have the same format and columns as the one used for training.
 See the sample input file `test.csv` in the `data/inference/input` folder.
 
-The inference algorithm outputs the predicted values of the time series. Note that:
+The inference algorithm outputs the predicted values of the time series. 
+
+**Notes:**
 
 a) The model predicts the time series sequence by sequence. 
 For instance, if the `context-length` is set equal to 200, and the `prediction-length` is set equal to 100, 
