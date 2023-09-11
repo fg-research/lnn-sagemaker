@@ -43,7 +43,6 @@ The `training` channel is mandatory, while the `validation` channel is optional.
 The training and validation datasets should be provided as CSV files. 
 Each column represents a time series, while each row represents a time step.
 All the time series should have the same length and should not contain missing values.
-
 The column headers should be formatted as follows:
 - The column names of the (mandatory) target time series should start with `"y"` (e.g. `"y1"`, `"y2"`, ...). 
 - The column names of the (optional) feature time series should start with `"x"` (e.g. `"x1"`, `"x2"`, ...). 
