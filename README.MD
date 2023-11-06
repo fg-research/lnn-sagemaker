@@ -29,7 +29,7 @@ while the intercept $b$ and slope $a$ are the outputs of two fully-connected lay
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/cfc-diagram.png style="width:100%;margin-top:60px;margin-bottom:50px"/>
 
-*CfC architecture* (source: [doi:10.1038/s42256–022–00556–7](https://doi.org/10.1038/s42256-022-00556-7))
+*CfC architecture (source: [doi:10.1038/s42256–022–00556–7](https://doi.org/10.1038/s42256-022-00556-7))*
 
 **Model Resources:** [[Paper]](https://doi.org/10.1038/s42256-022-00556-7) [[Code]](https://github.com/raminmh/CfC)
 
