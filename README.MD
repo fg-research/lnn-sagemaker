@@ -15,12 +15,12 @@ CfCs use the Liquid Time Constant (LTC) ODE, where both the derivative and the t
 Differently from other CT-RNNs (including LTCs), which use a numerical solver to approximate the ODE solution, CfCs use an approximate closed-form solution. 
 As a results, CfCs achieve faster training and inference performance than other CT-RNNs.
 
-The hidden state $x$ of a CfC at time $t$ is given by
+The hidden state `$x$` of a CfC at time `$t$` is given by
 
-$$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$$
+`$$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$$`
 
-where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input sequence, while $f$, $g$ and $h$ are neural networks. 
-The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation. 
+where `$\odot$` is the Hadamard product, `$\sigma$` is the sigmoid function, `$I$` is the input sequence, while `$f$`, `$g$` and `$h$` are neural networks. 
+The three neural networks `$f$`, `$g$` and `$h$` share a common backbone, which is a stack of fully-connected layers with non-linear activation. 
 
 The backbone is followed by three separate neural network heads. 
 The head of the $g$ and $h$ neural networks is a fully-connected layer with hyperbolic tangent activation. 
