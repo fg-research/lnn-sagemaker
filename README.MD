@@ -15,17 +15,17 @@ CfCs use the Liquid Time Constant (LTC) ODE, where both the derivative and the t
 Differently from other CT-RNNs (including LTCs), which use a numerical solver to approximate the ODE solution, CfCs use an approximate closed-form solution. 
 As a results, CfCs achieve faster training and inference performance than other CT-RNNs.
 
-The hidden state `$x$` of a CfC at time `$t$` is given by
+The hidden state $x$ of a CfC at time $t$ is given by
 
-`$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$`
+$x(t) = \sigma(-f(x, I; \theta_f)t) \odot g(x, I; \theta_g) + [1 - \sigma(-[f(x, I; \theta_f)]t)] \odot h(x, I; \theta_h)$
 
-where `$\odot$` is the Hadamard product, `$\sigma$` is the sigmoid function, `$I$` is the input sequence, while `$f$`, `$g$` and `$h$` are neural networks. 
-The three neural networks `$f$`, `$g$` and `$h$` share a common backbone, which is a stack of fully-connected layers with non-linear activation. 
+where $\odot$ is the Hadamard product, $\sigma$ is the sigmoid function, $I$ is the input sequence, while $f$, $g$ and $h$ are neural networks. 
+The three neural networks $f$, $g$ and $h$ share a common backbone, which is a stack of fully-connected layers with non-linear activation. 
 
 The backbone is followed by three separate neural network heads. 
-The head of the `$g$` and `$h$` neural networks is a fully-connected layer with hyperbolic tangent activation. 
-The head of the `$f$` neural network is an affine function `$b + a(\Delta t)$` where `$\Delta t$` is the time span (or time increment) between consecutive time steps 
-while the intercept `$b$` and slope `$a$` are the outputs of two fully-connected layers with linear activation.
+The head of the $g$ and $h$ neural networks is a fully-connected layer with hyperbolic tangent activation. 
+The head of the $f$ neural network is an affine function $b + a(\Delta t)$ where $\Delta t$ is the time span (or time increment) between consecutive time steps 
+while the intercept $b$ and slope $a$ are the outputs of two fully-connected layers with linear activation.
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/cfc-diagram.png style="width:100%;margin-top:60px;margin-bottom:50px"/>
 
@@ -122,5 +122,5 @@ See the sample output file `real_time_predictions.csv` in the `data/inference/ou
 **Additional Resources:** [[Blog Post]](https://medium.com/@fg-research/time-series-forecasting-with-the-cfc-sagemaker-algorithm-from-aws-marketplace-eb89a53f11ec?source=friends_link&sk=3471cd2c8a6881f5cce1b2ce3bd46ffe)
 
 ## References
-* R. Hasani, M. Lechner, A. Amini, D. Rus and R. Grosu, "Liquid time-constant networks", in *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 35, no. 9, pp. 7657-7666, 2021, [doi: 10.1609/aaai.v35i9.16936](https://doi.org/10.1609/aaai.v35i9.16936).
-* R. Hasani, M. Lechner, A. Amini, L. Liebenwein, A. Ray, M. Tschaikowski, G. Teschl and D. Rus, "Closed-form continuous-time neural networks", in *Nature Machine Intelligence*, vol. 4, pp. 992–1003, 2022, [doi: 10.1038/s42256-022-00556-7](https://doi.org/10.1038/s42256-022-00556-7).
+- R. Hasani, M. Lechner, A. Amini, D. Rus and R. Grosu, "Liquid time-constant networks", in *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 35, no. 9, pp. 7657-7666, 2021, [doi: 10.1609/aaai.v35i9.16936](https://doi.org/10.1609/aaai.v35i9.16936).
+- R. Hasani, M. Lechner, A. Amini, L. Liebenwein, A. Ray, M. Tschaikowski, G. Teschl and D. Rus, "Closed-form continuous-time neural networks", in *Nature Machine Intelligence*, vol. 4, pp. 992–1003, 2022, [doi: 10.1038/s42256-022-00556-7](https://doi.org/10.1038/s42256-022-00556-7).
