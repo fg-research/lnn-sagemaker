@@ -52,8 +52,8 @@ If the features are not provided, the algorithm will only use the past values of
 If the time spans are not provided, the algorithm will assume that the observations are equally spaced.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
 
-See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
-See `notebook.ipynb` for an example of how to launch a training job.
+See the sample input files [`train.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/training/train.csv) and [`valid.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/training/valid.csv).
+See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a training job.
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
@@ -90,12 +90,12 @@ If the `validation` channel is provided, the training algorithm also logs the fo
 - `valid_mse`: `float`. Validation mean squared error.
 - `valid_mae`: `float`. Validation mean absolute error.
 
-See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job.
+See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a hyperparameter tuning job.
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
 The CSV file should have the same format and columns as the one used for training.
-See the sample input file `test.csv` in the `data/inference/input` folder.
+See the sample input file [`test.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/input/test.csv).
 
 The inference algorithm outputs the predicted values of the time series. 
 
@@ -110,14 +110,13 @@ b) The outputs include the out-of-sample forecasts beyond the last time step of 
 For instance, if the number of input samples is 500, and the `prediction-length` is 100, 
 then the output CSV file will contain 600 samples, where the last 100 samples are the out-of-sample forecasts.  
 
-See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
-See `notebook.ipynb` for an example of how to launch a batch transform job.
+See the sample output files [`batch_predictions.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/output/batch/batch_predictions.csv) and [`real_time_predictions.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/output/real-time/real_time_predictions.csv).
+See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a batch transform job.
 
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
-See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
+See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
 **Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-forecasting-with-the-cfc-sagemaker-algorithm-from-aws-marketplace-eb89a53f11ec?source=friends_link&sk=3471cd2c8a6881f5cce1b2ce3bd46ffe)
 
