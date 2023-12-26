@@ -8,7 +8,7 @@ and [NOTICE](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/NOTICE
 
 ## Model Description
 The closed-form continuous-depth network (CfC) is a neural network architecture for sequential data. 
-CfCs belong to the class of continuous-time recurrent neural networks (CT-RNN), where the evolution of the hidden state over time is described by an Ordinary Differential Equations (ODE).
+CfCs belong to the class of continuous-time recurrent neural networks (CT-RNN), where the evolution of the hidden state over time is described by an Ordinary Differential Equation (ODE).
 
 CfCs use the Liquid Time Constant (LTC) ODE, where both the derivative and the time constant of the hidden state are determined by a neural network. 
 Differently from other CT-RNNs (including LTCs), which use a numerical solver to approximate the ODE solution, CfCs use an approximate closed-form solution. 
