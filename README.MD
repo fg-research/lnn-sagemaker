@@ -95,7 +95,7 @@ The inference algorithm takes as input a CSV file containing the time series.
 The CSV file should have the same format and columns as the one used for training.
 See the sample input file [`test.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/input/test.csv).
 
-The inference algorithm outputs the predicted values of the time series. 
+The inference algorithm outputs the predicted values of the time series and the standard deviation of the predictions. 
 
 **Notes:**
 
