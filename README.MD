@@ -116,7 +116,7 @@ The algorithm supports only real-time inference endpoints. The inference image i
 
 See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
-**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-forecasting-with-the-cfc-sagemaker-algorithm-from-aws-marketplace-eb89a53f11ec?source=friends_link&sk=3471cd2c8a6881f5cce1b2ce3bd46ffe)
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://fg-research.com/blog/product/posts/cfc-tsf-equity-forecasting.html)
 
 ## References
 - R. Hasani, M. Lechner, A. Amini, D. Rus and R. Grosu, "Liquid time-constant networks", in *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 35, no. 9, pp. 7657-7666, 2021, [doi: 10.1609/aaai.v35i9.16936](https://doi.org/10.1609/aaai.v35i9.16936).
