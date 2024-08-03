@@ -2,8 +2,7 @@
 The [Time Series Forecasting (CfC) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-7s4giphluwgta) performs time series forecasting with the Closed-Form Continuous-Depth (CfC) network. 
 It implements both training and inference from CSV data and supports both CPU and GPU instances. 
 The training and inference Docker images were built by extending the PyTorch 2.1.0 Python 3.10 SageMaker containers. 
-The Docker images include software licensed under the Apache License 2.0, 
-see the attached [LICENSE](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/LICENSE.txt).
+The Docker images include software licensed under the [Apache License 2.0](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/LICENSE.txt).
 
 ## Model Description
 The closed-form continuous-depth network (CfC) is a neural network architecture for sequential data. 
