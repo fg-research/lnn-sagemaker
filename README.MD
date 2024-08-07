@@ -2,7 +2,7 @@
 The [Time Series Forecasting (LNN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-7s4giphluwgta) performs time series forecasting with Liquid Neural Networks (LNNs). 
 It implements both training and inference from CSV data and supports both CPU and GPU instances. 
 The training and inference Docker images were built by extending the PyTorch 2.1.0 Python 3.10 SageMaker containers. 
-The Docker images include software licensed under the [Apache License 2.0](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/LICENSE.txt).
+The Docker images include software licensed under the [Apache License 2.0](https://github.com/fg-research/lnn-sagemaker/blob/master/LICENSE.txt).
 
 ## Model Description
 LNNs belong to the class of continuous-time recurrent neural networks (CT-RNNs), where the evolution of the hidden state over time is described by an Ordinary Differential Equation (ODE).
@@ -49,8 +49,8 @@ If the features are not provided, the algorithm will only use the past values of
 If the time spans are not provided, the algorithm will assume that the observations are equally spaced.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
 
-See the sample input files [`train.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/training/train.csv) and [`valid.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/training/valid.csv).
-See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a training job.
+See the sample input files [`train.csv`](https://github.com/fg-research/lnn-sagemaker/blob/master/data/training/train.csv) and [`valid.csv`](https://github.com/fg-research/lnn-sagemaker/blob/master/data/training/valid.csv).
+See [`notebook.ipynb`](https://github.com/fg-research/lnn-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a training job.
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
@@ -88,12 +88,12 @@ If the `validation` channel is provided, the training algorithm also logs the fo
 - `valid_mse`: `float`. Validation mean squared error.
 - `valid_mae`: `float`. Validation mean absolute error.
 
-See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a hyperparameter tuning job.
+See [`notebook.ipynb`](https://github.com/fg-research/lnn-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a hyperparameter tuning job.
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
 The CSV file should have the same format and columns as the one used for training.
-See the sample input file [`test.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/input/test.csv).
+See the sample input file [`test.csv`](https://github.com/fg-research/lnn-sagemaker/blob/master/data/inference/input/test.csv).
 
 The inference algorithm outputs the predicted values of the time series and the standard deviation of the predictions. 
 
@@ -108,15 +108,15 @@ b) The outputs include the out-of-sample forecasts beyond the last time step of 
 For instance, if the number of input samples is 500, and the `prediction-length` is 100, 
 then the output CSV file will contain 600 samples, where the last 100 samples are the out-of-sample forecasts.  
 
-See the sample output files [`batch_predictions.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/output/batch/batch_predictions.csv) and [`real_time_predictions.csv`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/data/inference/output/real-time/real_time_predictions.csv).
-See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a batch transform job.
+See the sample output files [`batch_predictions.csv`](https://github.com/fg-research/lnn-sagemaker/blob/master/data/inference/output/batch/batch_predictions.csv) and [`real_time_predictions.csv`](https://github.com/fg-research/lnn-sagemaker/blob/master/data/inference/output/real-time/real_time_predictions.csv).
+See [`notebook.ipynb`](https://github.com/fg-research/lnn-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a batch transform job.
 
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-See [`notebook.ipynb`](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
+See [`notebook.ipynb`](https://github.com/fg-research/lnn-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
-**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/cfc-tsf-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://fg-research.com/blog/product/posts/cfc-tsf-equity-forecasting.html)
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/lnn-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://fg-research.com/blog/product/posts/lnn-equity-forecasting.html)
 
 ## References
 - R. Hasani, M. Lechner, A. Amini, D. Rus and R. Grosu, "Liquid time-constant networks", in *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 35, no. 9, pp. 7657-7666, 2021, [doi: 10.1609/aaai.v35i9.16936](https://doi.org/10.1609/aaai.v35i9.16936).
