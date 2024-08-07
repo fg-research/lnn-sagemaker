@@ -10,7 +10,7 @@ LNNs are based on the Liquid Time Constant (LTC) ODE, where both the derivative 
 
 This algorithm uses the closed-form continuous-depth (CfC) network implementation of LNNs.
 Differently from other CT-RNNs (including other LNNs such as LTCs), which use a numerical solver to approximate the ODE solution, CfCs use an approximate closed-form solution. 
-As a results, CfCs achieve faster training and inference performance than other CT-RNNs.
+As a results, CfCs achieve faster training and inference performance than other LNNs and CT-RNNs.
 
 The hidden state $x$ of a CfC at time $t$ is given by
 
