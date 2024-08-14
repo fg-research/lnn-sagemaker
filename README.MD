@@ -3,6 +3,7 @@ The [Time Series Forecasting (LNN) Algorithm from AWS Marketplace](https://aws.a
 It implements both training and inference from CSV data and supports both CPU and GPU instances. 
 The training and inference Docker images were built by extending the PyTorch 2.1.0 Python 3.10 SageMaker containers. 
 The Docker images include software licensed under the [Apache License 2.0](https://github.com/fg-research/lnn-sagemaker/blob/master/LICENSE.txt).
+The algorithm can be used for both univariate and multivariate time series and supports the inclusion of external features.
 
 ## Model Description
 LNNs belong to the class of continuous-time recurrent neural networks (CT-RNNs), where the evolution of the hidden state over time is described by an Ordinary Differential Equation (ODE).
