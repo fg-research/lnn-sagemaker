@@ -68,7 +68,7 @@ The training algorithm takes as input the following hyperparameters:
 - `sequence-stride`: `int`. The period between consecutive output sequences.
 - `backbone-layers`: `int`. The number of hidden layers of the backbone neural network. 
 - `backbone-units`: `int`. The number of hidden units of the backbone neural network.
-- `backbone-activation`: `str`. The activation function of the backbone neural network.
+- `backbone-activation`: `str`. The activation function of the backbone neural network, either `"silu"`, `"relu"`, `"tanh"`, `"gelu"`, or `"lecun"`.
 - `backbone-dropout`: `float`. The dropout rate of the backbone neural network.
 - `hidden-size`: `int`. The number of hidden units of the neural network heads.
 - `minimal`: `bool`. If set to 1, the model will use the CfC direct solution.
